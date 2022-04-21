@@ -10,7 +10,7 @@
   8. Melakukan Eksekusi seeder untuk data dummy "php artisan db:seed --class=PostSeeder"
   9. Proses setup database dan migrasi data dari laravel DONE
  # ENDPOINT DAN COLLECTION
-  # POSTMAN COLLECTION
+  POSTMAN COLLECTION
    1. File postman collection berada di folder public/postman-collection
    2. silahkan import file Postman-collection.postman_collection.json ke Postman anda
    3. disana terdapat 5 request yang berisikan url(endpoint) API yang sudah dibuat 
@@ -31,4 +31,3 @@
  2. Untuk Hal ini karena url 'public/' telah dikonfugari agar hilang jadi untuk menjalankan program tidak perlu Menggunakan 
     Command 'php artisan serve' jika anda menggunakan xampp langsung saja akses dimana file laravel ini diletakan
     contoh pada kasus saya localhost/tes/Tes PT Sharing Vision Indonesia/BE/
-    
