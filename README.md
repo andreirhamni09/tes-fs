@@ -18,11 +18,11 @@
 
 # FE
  1. Halaman POST                    : localhost/[alamat direktori penyimpanan]/
- 2. Halaman ALL POST                : localhost/[alamat direktori penyimpanan]/semuapost
-   a. Halaman ALL POST 'tabs'       : Halaman Website ALL POST terdapat tab tabel 'publish', 'draft', dan 'thrash'
-   b. Halaman ALL POST 'edit post'  : Halaman Website ALL POST terdapat Tombol dengan 'ICON EDIT' untuk mengakses halaman Edit Artikel dengan alamat
-                                      localhost/[alamat direktori penyimpanan]/editpost/[id artikel yang dipilih saat menekan tombol]
-   c. Halaman ALL POST 'thrash '    : Halaman Website ALL POST terdapat Tombol dengan 'ICON TRASH' untuk mengupdate status Artikel menjadi 'thrash'
+ 2. Halaman ALL POST                : localhost/[alamat direktori penyimpanan]/semuapost <br>
+   a. Halaman ALL POST 'tabs'       : Halaman Website ALL POST terdapat tab tabel 'publish', 'draft', dan 'thrash'<br>
+   b. Halaman ALL POST 'edit post'  : Halaman Website ALL POST terdapat Tombol dengan 'ICON EDIT' untuk mengakses halaman Edit Artikel dengan alamat<br>
+                                      localhost/[alamat direktori penyimpanan]/editpost/[id artikel yang dipilih saat menekan tombol]<br>
+   c. Halaman ALL POST 'thrash '    : Halaman Website ALL POST terdapat Tombol dengan 'ICON TRASH' untuk mengupdate status Artikel menjadi 'thrash'<br>
  3. Halaman ADD NEW     : localhost/[alamat direktori penyimpanan]/tambahbaru
  4. Halaman PREVIEW     : localhost/[alamat direktori penyimpanan]/preview
 
