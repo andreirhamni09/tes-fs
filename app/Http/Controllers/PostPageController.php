@@ -28,15 +28,28 @@ class PostPageController extends Controller
         $thrash = DB::table('posts')
         ->where('status', 'thrash')
         ->get();
-       
-
-        if($trashed !== null){
-            return view('allpost', ['publish' => $publish, 'draft' => $draft, 'thrash' => $thrash, 'trashed' => 1]);
-        }
-        else{
-            return view('allpost', ['publish' => $publish, 'draft' => $draft, 'thrash' => $thrash, 'trashed' => 0]);
-        }
+            
+        return view('allpost', ['publish' => $publish, 'draft' => $draft, 'thrash' => $thrash]);
     }
+    public static function hapus($id, Request $request)
+    {
+        $title      = $request->input("title".$id."");
+        $content    = $request->input("content".$id."");    
+        $category   = $request->input("category".$id."");    
+        $status     = $request->input("status".$id."");
+
+        $trashed    = json_decode(Http::post("http://localhost/tes/Tes PT Sharing Vision Indonesia/BE/api/article/$id", ['title' => $title, 'content' => $content, 'category' => $category, 'status' => $status]));
+        if($trashed == 'Artikel Berhasil Diupdate')
+        {
+            return redirect()->back()->with('trashed', 'Berhasil Update');
+        }
+        else
+        {
+            return redirect()->back()->with('trashed', "Gagal Update");
+        }
+    } 
+
+
     public static function editpost($id)
     {
         $getpost = json_decode(Http::get("http://localhost/tes/Tes PT Sharing Vision Indonesia/BE/api/article/$id"), true);

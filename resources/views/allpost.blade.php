@@ -137,11 +137,15 @@
                                                         <td>{{ $value->title }}</td>
                                                         <td>{{ $value->category }}</td>
                                                         <td>
-                                                            <a href="{{ url('/editpost/'.$value->id) }}" class="card-link"><i class="fas fa-edit"></i></a>
-                                                            <input type="hidden" id="title{{$value->id}}" value="{{$value->title}}">
-                                                            <input type="hidden" id="content{{$value->id}}" value="{{$value->content}}">
-                                                            <input type="hidden" id="category{{$value->id}}" value="{{$value->category}}">
-                                                            <a onclick="ToTrashed(<?php echo $value->id; ?>)" class="card-link"><i class="fas fa-trash"></i></a>
+                                                            <form action="{{ url('/hapus/'.$value->id) }}" method="get" id="form{{$value->id}}">
+                                                                @csrf
+                                                                <a href="{{ url('/editpost/'.$value->id) }}" class="card-link"><i class="fas fa-edit"></i></a>
+                                                                <input type="hidden" name="title{{$value->id}}" id="title{{$value->id}}" value="{{$value->title}}">
+                                                                <input type="hidden" name="content{{$value->id}}" id="content{{$value->id}}" value="{{$value->content}}">
+                                                                <input type="hidden" name="category{{$value->id}}" id="category{{$value->id}}" value="{{$value->category}}">
+                                                                <input type="hidden" name="status{{$value->id}}" id="status{{$value->id}}" value="thrash">
+                                                                <a onclick="document.getElementById('form<?php echo $value->id;?>').submit()" class="card-link"><i class="fas fa-trash"></i></a>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -168,11 +172,15 @@
                                                         <td>{{ $value->title }}</td>
                                                         <td>{{ $value->category }}</td>
                                                         <td>
-                                                            <a href="{{ url('/editpost/'.$value->id) }}" class="card-link"><i class="fas fa-edit"></i></a>
-                                                            <input type="hidden" id="title{{$value->id}}" value="{{$value->title}}">
-                                                            <input type="hidden" id="content{{$value->id}}" value="{{$value->content}}">
-                                                            <input type="hidden" id="category{{$value->id}}" value="{{$value->category}}">
-                                                            <a onclick="ToTrashed(<?php echo $value->id; ?>)" class="card-link"><i class="fas fa-trash"></i></a>
+                                                            <form action="{{ url('/hapus/'.$value->id) }}" method="get" id="form{{$value->id}}">
+                                                                @csrf
+                                                                <a href="{{ url('/editpost/'.$value->id) }}" class="card-link"><i class="fas fa-edit"></i></a>
+                                                                <input type="hidden" name="title{{$value->id}}" id="title{{$value->id}}" value="{{$value->title}}">
+                                                                <input type="hidden" name="content{{$value->id}}" id="content{{$value->id}}" value="{{$value->content}}">
+                                                                <input type="hidden" name="category{{$value->id}}" id="category{{$value->id}}" value="{{$value->category}}">
+                                                                <input type="hidden" name="status{{$value->id}}" id="status{{$value->id}}" value="thrash">
+                                                                <a onclick="document.getElementById('form<?php echo $value->id;?>').submit()" class="card-link"><i class="fas fa-trash"></i></a>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                     @endforeach
@@ -220,6 +228,13 @@
             </div>
         </div>
     </div>
+    <?php $trashed = "Tidak Ada"; ?>
+    @if(\Session::has('trashed'))
+        @php 
+            $trashed = \Session::get('trashed');
+        @endphp
+    @endif
+
     <!-- CoreUI and necessary plugins-->
     <script src="{{ asset('public/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
     <script src="{{ asset('public/vendors/simplebar/js/simplebar.min.js') }}"></script>
@@ -264,35 +279,10 @@
             });
             
         })
-
-        function ToTrashed(id){
-            var title      = $('#title'+id+'').val();
-            var content    = $('#content'+id+'').val();
-            var category   = $('#category'+id+'').val();
-            $.ajax({
-                url: '{{ url("/api/article/") }}/'+id,
-                method: "post",
-                data: {
-                    title       : title,   
-                    content     : content,
-                    category    : category,
-                    status      : 'thrash'
-                },
-                success: function(data) {
-                    if(data == "Artikel Berhasil Diupdate")
-                    {                        
-                        window.location.href = '{{ url("/semuapost/1") }}';
-                    }
-                },
-                error: function(data) {
-                    alert('Gagal');
-                }
-            });
-        }        
-
+        
         $(document).ready(function() { 
-            var trashed = <?php echo $trashed;?>;
-            if(trashed == 1)
+            var trashed = <?php echo json_encode($trashed);?>;
+            if(trashed == "Berhasil Update")
             {
                 $("#trashed").addClass("active");
                 $("#t_trashed").attr("hidden", false);
@@ -302,13 +292,6 @@
 
                 $("#drafts").removeClass("active");
                 $("#t_drafts").attr("hidden", true);
-            }
-        });
-
-        $(document.body).on("keydown", this,
-            function (event) { 
-                if (event.keyCode == 116 || event.keyCode == 17) { 
-                    window.location.href = '{{ url("/semuapost") }}';
             } 
         });
 

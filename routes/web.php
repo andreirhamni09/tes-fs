@@ -14,7 +14,10 @@ use App\Http\Controllers\PostPageController;
 |
 */
 Route::get('/', [PostPageController::class, 'index']);
-Route::get('/semuapost/{trashed?}', [PostPageController::class, 'allpost']);
+Route::get('/semuapost', [PostPageController::class, 'allpost']);
 Route::get('/tambahbaru', [PostPageController::class, 'addnew']);
 Route::get('/preview', [PostPageController::class, 'preview']);
 Route::get('/editpost/{id}', [PostPageController::class, 'editpost']);
+
+
+Route::get('/hapus/{id}', [PostPageController::class, 'hapus']);
