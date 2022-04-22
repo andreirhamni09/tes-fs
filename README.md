@@ -5,7 +5,7 @@
   3. DB_DATABASE=laravel ubah menjadi DB_DATABASE=postdatabase
   4. DB_USERNAME=root ubah menjadi DB_USERNAME=root (atau username yang anda biasa gunakan) 
   5. DB_PASSWORD= (atau password username yang anda biasa gunakan) 
-  6. Buatlah database di mysql anda dengan nama post-database
+  6. Buatlah database di mysql anda dengan nama postdatabase
   7. Jika database telah dibuat jalankan perintah "php artisan migrate" untuk melakukan migrasi data
   8. Melakukan Eksekusi seeder untuk data dummy "php artisan db:seed --class=PostSeeder"
   9. Proses setup database dan migrasi data dari laravel DONE
