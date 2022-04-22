@@ -18,17 +18,17 @@ class PostController extends Controller
             'status'    => ['required', 'in:publish,draft,thrash']
         ];      
         
-        
         $msg = [
             'title.required'    => 'Title Wajib Diisi',
             'title.min'         => 'Minimal Pengisian Title Adalah 20 Karakter',
             'content.required'  => 'Content Wajib Diisi',
             'content.min'       => 'Minimal Pengisian Content Adalah 200 Karakter',
             'category.required' => 'Category Wajib Diisi',
-            'category.min'      => 'Minimal Pengisian Kategory Adalah 3 Karakter',
+            'category.min'      => 'Minimal Pengisian Category Adalah 3 Karakter',
             'status.required'   => 'Status Wajib Diisi',
             'status.in'         => 'Status Harus Diisi Dengan publish, draft, atau thrash',
         ];
+
 
         $validator = Validator::make($request->all(), $rules, $msg);
         if($validator->fails())
@@ -88,7 +88,7 @@ class PostController extends Controller
             'content.required'  => 'Content Wajib Diisi',
             'content.min'       => 'Minimal Pengisian Content Adalah 200 Karakter',
             'category.required' => 'Category Wajib Diisi',
-            'category.min'      => 'Minimal Pengisian Kategory Adalah 3 Karakter',
+            'category.min'      => 'Minimal Pengisian Category Adalah 3 Karakter',
             'status.required'   => 'Status Wajib Diisi',
             'status.in'         => 'Status Harus Diisi Dengan publish, draft, atau thrash',
         ];
