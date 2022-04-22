@@ -16,16 +16,17 @@ class PostController extends Controller
             'content'   => ['required', 'min:200'],
             'category'  => ['required', 'min:3'],
             'status'    => ['required', 'in:publish,draft,thrash']
-        ];
+        ];      
+        
         
         $msg = [
             'title.required'    => 'Title Wajib Diisi',
             'title.min'         => 'Minimal Pengisian Title Adalah 20 Karakter',
             'content.required'  => 'Content Wajib Diisi',
             'content.min'       => 'Minimal Pengisian Content Adalah 200 Karakter',
-            'category.required' => 'Title Wajib Diisi',
+            'category.required' => 'Category Wajib Diisi',
             'category.min'      => 'Minimal Pengisian Title Adalah 3 Karakter',
-            'status.required'   => 'Title Wajib Diisi',
+            'status.required'   => 'Status Wajib Diisi',
             'status.in'         => 'Status Harus Diisi Dengan publish, draft, atau thrash',
         ];
 
