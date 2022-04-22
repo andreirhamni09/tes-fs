@@ -25,7 +25,7 @@ class PostController extends Controller
             'content.required'  => 'Content Wajib Diisi',
             'content.min'       => 'Minimal Pengisian Content Adalah 200 Karakter',
             'category.required' => 'Category Wajib Diisi',
-            'category.min'      => 'Minimal Pengisian Title Adalah 3 Karakter',
+            'category.min'      => 'Minimal Pengisian Kategory Adalah 3 Karakter',
             'status.required'   => 'Status Wajib Diisi',
             'status.in'         => 'Status Harus Diisi Dengan publish, draft, atau thrash',
         ];
@@ -88,7 +88,7 @@ class PostController extends Controller
             'content.required'  => 'Content Wajib Diisi',
             'content.min'       => 'Minimal Pengisian Content Adalah 200 Karakter',
             'category.required' => 'Category Wajib Diisi',
-            'category.min'      => 'Minimal Pengisian Title Adalah 3 Karakter',
+            'category.min'      => 'Minimal Pengisian Kategory Adalah 3 Karakter',
             'status.required'   => 'Status Wajib Diisi',
             'status.in'         => 'Status Harus Diisi Dengan publish, draft, atau thrash',
         ];
